@@ -30,7 +30,7 @@
     img {
       padding: var(--spacing);
       background: var(--base);
-      filter: var(blur);
+      filter: blur(var(--blur));
     }
 
     .hl {
@@ -64,12 +64,12 @@
     const inputs = document.querySelectorAll('.controls input')
 
     function handleUpdate() {
-      const suffix = this.dataset.sizing;
-      
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
 
-    inputs.forEach( input => input.addEventlistener('change', handleUpdate))
-    inputs.forEach( input => input.addEventlistener('mousemove', handleUpdate))
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
   </script>
 
 </body>
