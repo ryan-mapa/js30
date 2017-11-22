@@ -70,7 +70,13 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
-    // const cartruck =
+    const transportation = data.reduce((obj, mode) => {
+      if (!obj[mode]) {obj[mode] = 0}
+      obj[mode]++;
+      return obj;
+    }, {}); //start with blank object
+
+    console.log(transportation);
 
   </script>
 </body>
