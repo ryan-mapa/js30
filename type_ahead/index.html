@@ -19,25 +19,28 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
 
 const cities = [];
 
-const promise = fetch(endpoint);
+// const promise = fetch(endpoint);
 fetch(endpoint).then(blob => blob.json()).then(data => cities.push(...data));
 console.log(cities);
 
-const findMatches = (word, cities) => (
-  cities.filter(place => {
+function findMatches(word, cities) {
+  return cities.filter(place => {
     const regex = new RegExp(word, 'gi') // g is global and i is insensitve (case)
     return place.city.match(regex) || place.state.match(regex)
-  })
-)
+  });
+}
 
-const displayMatches = () => {
-  console.log(this.value);
+function displayMatches() {
+  // console.log(this.value);
+  let matches = findMatches(this.value, cities);
+  console.log(matches);
 }
 
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
 
-searchInput.addEventListener('change', findMatches)
+// searchInput.addEventListener('change', displayMatches)
+searchInput.addEventListener('keyup', displayMatches)
 
 </script>
   </body>
