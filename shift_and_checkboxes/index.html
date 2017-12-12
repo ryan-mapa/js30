@@ -107,11 +107,20 @@
 
     const handleCheck = (e) => {
       //check if shift is down
+      if (e.shiftKey) {
+
+        console.log(this);
+      }
       if(e.shiftKey && this.checked) {
+        console.log('shifty');
         //loop through each box
         boxes.forEach(box => {
           if (box === this || box === lastChecked) {
             inBetween = !inBetween;
+            console.log(box);
+          }
+          if (inBetween) {
+            box.checked = true;
           }
         })
       }
