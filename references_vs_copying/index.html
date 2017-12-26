@@ -78,7 +78,8 @@
     const dev = Object.assign({}, wes);
 
     const dev2 = JSON.parse(JSON.stringify(wes));
-
+    // THIS GIVES YOU A FULL COPY!!! (performance might be bad)
+    // aka "poor man's deep clone/dup"
 
     // conclusions: setting '=' sets a reference to the original (a pointer)
     // Object.assign does not deep dup! This means that nested data will still pont to original and editiing will modify original!
