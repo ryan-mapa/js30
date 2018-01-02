@@ -38,11 +38,18 @@
       done: false
     }
     items.push(item)
+    populateList(items, itemsList)
     this.reset();
   }
 
   function populateList(dishes = [], dishList) {
-    
+    dishList.innerHTML = dishes.map((dish, i) => {
+      return `
+        <li>
+          <label>${dish.text}</label>
+        </li>
+      `;
+    }).join('');
   }
 
   addItems.addEventListener('submit', addItem);
