@@ -46,7 +46,8 @@
     dishList.innerHTML = dishes.map((dish, i) => {
       return `
         <li>
-          <label>${dish.text}</label>
+          <input type="checkbox" data-index=${i} id="items${i}" ${dish.done ? 'checked' : ''}/>
+          <label for="items${i}">${dish.text}</label>
         </li>
       `;
     }).join('');
