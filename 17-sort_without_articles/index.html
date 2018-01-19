@@ -50,11 +50,10 @@
     return str.replace(/^(the |an |a )/i, '').trim();
   }
 
-
   const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
 
-
-
+  // innerHTML converts to string so join is needed to get rid of commas separating array values
+  document.querySelector('#bands').innerHTML = sortedBands.map(band => `<li>${band}</li>`).join('')
 </script>
 
 </body>
