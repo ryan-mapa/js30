@@ -190,6 +190,12 @@
     return (mins * 60) + secs
   }).reduce((acc, seconds) => acc + seconds)
 
+  let hours = Math.floor(seconds / 3600);
+  let minutes = Math.floor((seconds - (hours * 3600)) / 60);
+  let secondsLeft = seconds % 60;
+
+  console.log(hours, minutes, secondsLeft);
+
 </script>
 </body>
 </html>
